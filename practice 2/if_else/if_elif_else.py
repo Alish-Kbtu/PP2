@@ -26,3 +26,4 @@ elif age < 65:
   print("You are an adult")
 elif age >= 65:
   print("You are a senior")
+  
