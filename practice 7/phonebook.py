@@ -145,7 +145,7 @@ def menu():
         if choice == "1":
             create_table()
         elif choice == "2":
-            insert_from_csv("practice 7\contacts.csv")
+            insert_from_csv("contacts.csv")
         elif choice == "3":
             insert_from_console()
         elif choice == "4":
