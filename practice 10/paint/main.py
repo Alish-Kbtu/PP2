@@ -8,10 +8,10 @@ def main():
     pygame.display.set_caption("Paint")
     clock = pygame.time.Clock()
 
-    BG_COLOR = (0, 0, 0)
+    BLACK = (0, 0, 0)
 
     canvas = pygame.Surface(screen.get_size())
-    canvas.fill(BG_COLOR)
+    canvas.fill(BLACK)
 
     radius = 5
     drawing = False
@@ -36,7 +36,7 @@ def main():
                     pygame.quit()
                     return
 
-                # Color selection
+                # цвет
                 if event.key == pygame.K_r:
                     color = (255, 0, 0)
                 elif event.key == pygame.K_g:
@@ -48,7 +48,7 @@ def main():
                 elif event.key == pygame.K_y:
                     color = (255, 255, 0)
 
-                # Tool selection
+                # инструмент
                 elif event.key == pygame.K_1:
                     tool = "brush"
                 elif event.key == pygame.K_2:
@@ -58,7 +58,7 @@ def main():
                 elif event.key == pygame.K_4:
                     tool = "eraser"
 
-                # Brush size
+                # размер
                 elif event.key == pygame.K_UP:
                     radius = min(50, radius + 1)
                 elif event.key == pygame.K_DOWN:
@@ -66,7 +66,7 @@ def main():
 
                 # Clear canvas
                 elif event.key == pygame.K_c:
-                    canvas.fill(BG_COLOR)
+                    canvas.fill(BLACK)
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 drawing = True
@@ -77,7 +77,7 @@ def main():
                 if tool == "brush":
                     pygame.draw.circle(canvas, color, event.pos, radius)
                 elif tool == "eraser":
-                    pygame.draw.circle(canvas, BG_COLOR, event.pos, radius)
+                    pygame.draw.circle(canvas, BLACK, event.pos, radius)
 
             if event.type == pygame.MOUSEMOTION:
                 current_pos = event.pos
@@ -87,7 +87,7 @@ def main():
                         draw_line(canvas, color, last_pos, event.pos, radius)
                         last_pos = event.pos
                     elif tool == "eraser":
-                        draw_line(canvas, BG_COLOR, last_pos, event.pos, radius)
+                        draw_line(canvas, BLACK, last_pos, event.pos, radius)
                         last_pos = event.pos
 
             if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
@@ -104,7 +104,7 @@ def main():
                 current_pos = None
                 last_pos = None
 
-        screen.fill(BG_COLOR)
+        screen.fill(BLACK)
         screen.blit(canvas, (0, 0))
 
         if drawing and start_pos and current_pos:

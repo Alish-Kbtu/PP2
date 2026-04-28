@@ -13,7 +13,7 @@ def create_table():
             phone VARCHAR(20) NOT NULL
         )
     """)
-
+    
     conn.commit()
     cur.close()
     conn.close()
